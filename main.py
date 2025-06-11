@@ -28,7 +28,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # --- モデルのロード ---
 loaded_model = SimpleMLP().to(device)
 # 正しく load_state_dict() を使用（weights_only は不要）
-loaded_model.load_state_dict(torch.load("modelwithBatch.pth", map_location=device))
+loaded_model.load_state_dict(torch.load("modelwithBatch.pth", map_location=device, weights_only=True))
 loaded_model.eval()
 
 # --- Streamlit UI ---
